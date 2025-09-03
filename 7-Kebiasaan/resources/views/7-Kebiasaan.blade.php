@@ -626,12 +626,11 @@
                 <img src="https://via.placeholder.com/60x60/4a00e0/ffffff?text=SMPN2" alt="Logo Sekolah" class="school-logo">
             </div> --}}
             <div class="header-text">
-                <h1><i class="fas fa-child"></i> Aplikasi 7 Kebiasaan Anak</h1>
+                <h1><i class="fas fa-child"></i> Aplikasi 7 Kebiasaan Anak Indonesia Hebat SMPN 2 Prembun</h1>
                 <p>Pantau perkembangan kebiasaan baik anak sehari-hari</p>
             </div>
             <div class="logo-container">
-                <!-- Logo tambahan jika diperlukan (bisa dikosongkan) -->
-            </div>
+    <img src="{{ asset('assets/logoSMPN2Prembbun.jpg') }}" alt="Logo Sekolah" class="school-logo">
         </header>
         
         <div class="app-container">
@@ -643,15 +642,16 @@
                 
                 <form id="habitForm" action="{{ route('habits.store') }}" method="POST">
                     @csrf
+                    
                     <div class="form-group">
-                        <label for="studentName">Nama Siswa</label>
+                        <label for="studentName">Nama Murid</label>
                         <input type="text" id="studentName" name="studentName" required>
                         @error('studentName')
                             <span style="color: red; font-size: 14px;">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="studentSerial">Nomor Induk Siswa</label>
+                        <label for="studentSerial">Nomor Induk Murid</label>
                         <input type="text" id="studentSerial" name="studentSerial" required>
                         @error('studentSerial')
                             <span style="color: red; font-size: 14px;">{{ $message }}</span>
@@ -661,20 +661,6 @@
                         <label for="studentClass">Kelas</label>
                         <select id="studentClass" name="studentClass" required>
                             <option value="">-- Pilih Kelas --</option>
-                            <option value="9 A">9 A</option>
-                            <option value="9 B">9 B</option>
-                            <option value="9 C">9 C</option>
-                            <option value="9 D">9 D</option>
-                            <option value="9 E">9 E</option>
-                            <option value="9 F">9 F</option>
-                            <option value="9 G">9 G</option>
-                            <option value="8 A">8 A</option>
-                            <option value="8 B">8 B</option>
-                            <option value="8 C">8 C</option>
-                            <option value="8 D">8 D</option>
-                            <option value="8 E">8 E</option>
-                            <option value="8 F">8 F</option>
-                            <option value="8 G">8 G</option>
                             <option value="7 A">7 A</option>
                             <option value="7 B">7 B</option>
                             <option value="7 C">7 C</option>
@@ -682,49 +668,30 @@
                             <option value="7 E">7 E</option>
                             <option value="7 F">7 F</option>
                             <option value="7 G">7 G</option>
+                            <option value="8 A">8 A</option>
+                            <option value="8 B">8 B</option>
+                            <option value="8 C">8 C</option>
+                            <option value="8 D">8 D</option>
+                            <option value="8 E">8 E</option>
+                            <option value="8 F">8 F</option>
+                            <option value="8 G">8 G</option>
+                            <option value="9 A">9 A</option>
+                            <option value="9 B">9 B</option>
+                            <option value="9 C">9 C</option>
+                            <option value="9 D">9 D</option>
+                            <option value="9 E">9 E</option>
+                            <option value="9 F">9 F</option>
+                            <option value="9 G">9 G</option>
                         </select>
                         @error('studentClass')
                             <span style="color: red; font-size: 14px;">{{ $message }}</span>
                         @enderror
                     </div>
-                    
+                    {{-- kunci maksimal 7 hari dari sekarang dari hari ini dan tidak bisa isi di atas tanggal ini--}}
                     <div class="form-group">
                         <label for="date">Tanggal</label>
                         <input type="date" id="date" name="date" required>
                         @error('date')
-                            <span style="color: red; font-size: 14px;">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Olahraga Pagi</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sport1" name="morningSport[]" value="Lari">
-                                <label for="sport1">Lari</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sport2" name="morningSport[]" value="Senam">
-                                <label for="sport2">Senam</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sport3" name="morningSport[]" value="Bersepeda">
-                                <label for="sport3">Bersepeda</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sport4" name="morningSport[]" value="Jalan Sehat">
-                                <label for="sport4">JALAN SEHAT</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sport5" name="morningSport[]" value="Peregangan Otot">
-                                <label for="sport5">PEREGANGAN OTOT</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sport6" name="morningSport[]" value="Tidak Olahraga">
-                                <label for="sport6">TIDAK OLAHRAGA</label>
-                            </div>
-                        </div>
-                        @error('morningSport')
                             <span style="color: red; font-size: 14px;">{{ $message }}</span>
                         @enderror
                     </div>
@@ -746,36 +713,94 @@
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="worship2" name="worship[]" value="Sholat Subuh">
-                                <label for="worship2">Sholat Subuh</label>
+                                <label for="worship2">Tadarus/Mengaji</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="worship3" name="worship[]" value="Mengaji/Tadarus">
-                                <label for="worship3">Mengaji/Tadarus</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="worship4" name="worship[]" value="Tidak Sholat Subuh">
-                                <label for="worship4">Tidak Sholat Subuh</label>
+                                <label for="worship3">Baca Hadist</label>
                             </div>
                         </div>
                         @error('worship')
                             <span style="color: red; font-size: 14px;">{{ $message }}</span>
                         @enderror
                     </div>
-                    
                     <div class="form-group">
-                        <label for="prayer">Ibadah 5 Waktu</label>
-                        <select id="prayer" name="prayer" required>
-                            <option value="">-- Pilih Status --</option>
-                            <option value="Rajin">RAJIN</option>
-                            <option value="Terkadang">TERKADANG</option>
-                            <option value="Jarang">JARANG</option>
-                            <option value="Tidak_pernah">TIDAK PERNAH</option>
-                        </select>
+                        <label>Ibadah 5 Waktu</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerSubuh" name="prayer[]" value="Subuh">
+                                <label for="prayerSubuh">Sholat Subuh</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerDzuhur" name="prayer[]" value="Dzuhur">
+                                <label for="prayerDzuhur">Sholat Dzuhur</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerAshar" name="prayer[]" value="Ashar">
+                                <label for="prayerAshar">Sholat Ashar</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerMaghrib" name="prayer[]" value="Maghrib">
+                                <label for="prayerMaghrib">Sholat Maghrib</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerIsya" name="prayer[]" value="Isya">
+                                <label for="prayerIsya">Sholat Isya</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerHaid" name="prayer[]" value="Sedang_haid">
+                                <label for="prayerHaid">Sedang Haid</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerNone" name="prayer[]" value="Tidak_solat">
+                                <label for="prayerNone">Tidak Solat</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prayerNonIslam" name="prayer[]" value="Non_Islam">
+                                <label for="prayerNonIslam">Non Islam</label>
+                            </div>
+                        </div>
                         @error('prayer')
                             <span style="color: red; font-size: 14px;">{{ $message }}</span>
                         @enderror
                     </div>
-                    
+                    <div class="form-group">
+                        <label>Olahraga</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sport1" name="morningSport[]" value="Lari">
+                                <label for="sport1">LARI</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sport2" name="morningSport[]" value="Senam">
+                                <label for="sport2">SENAM</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sport3" name="morningSport[]" value="Bersepeda">
+                                <label for="sport3">BERSEPEDA</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sport4" name="morningSport[]" value="Jalan Sehat">
+                                <label for="sport4">JALAN SEHAT</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sport5" name="morningSport[]" value="Peregangan Otot">
+                                <label for="sport5">PEREGANGAN OTOT</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sport6" name="morningSport[]" value="Tidak Olahraga">
+                                <label for="sport6">TIDAK OLAHRAGA</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sport7" name="morningSport[]" value="Tidak Olahraga">
+                                <label for="sport7">LAINNYA</label>
+                            </div>
+                        </div>
+                        @error('morningSport')
+                            <span style="color: red; font-size: 14px;">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="form-group">
                         <label for="breakfast">Pelaksanaan Sarapan</label>
                         <select id="breakfast" name="breakfast" required>
@@ -884,127 +909,176 @@
     </div>
 
     <script>
-        // Hanya menyisakan JavaScript yang diperlukan untuk UI
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set current date as default
-            document.getElementById('date').valueAsDate = new Date();
-            
-            // Setup olahraga checkbox logic
-            setupSportCheckboxLogic();
-            
-            // Setup ibadah checkbox logic
-            setupWorshipCheckboxLogic();
-            
-            // Tampilkan pesan alert jika ada
-            @if(session('success'))
-                showAlert('{{ session('success') }}', 'success');
-            @endif
-            
-            @if($errors->any())
-                showAlert('Terjadi kesalahan. Silakan periksa form input.', 'error');
-            @endif
+document.addEventListener('DOMContentLoaded', function() {
+    // Set tanggal hari ini sebagai default
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+        dateInput.valueAsDate = new Date();
+    }
+
+    // Panggil semua setup fungsi
+    setupSportCheckboxLogic();
+    setupWorshipCheckboxLogic();
+    setupPrayerCheckboxLogic();
+
+    // Tampilkan pesan alert jika ada
+    @if(session('success'))
+        showAlert('{{ session('success') }}', 'success');
+    @endif
+    
+    @if($errors->any())
+        showAlert('Terjadi kesalahan. Silakan periksa form input.', 'error');
+    @endif
+});
+
+
+// =============================
+// Fungsi Logika Checkbox Olahraga
+// =============================
+function setupSportCheckboxLogic() {
+    const noSportCheckbox = document.getElementById('sport6'); // Tidak olahraga
+    const otherSportCheckboxes = [
+        document.getElementById('sport1'),
+        document.getElementById('sport2'),
+        document.getElementById('sport3'),
+        document.getElementById('sport4'),
+        document.getElementById('sport5'),
+        document.getElementById('sport7')
+    ];
+
+    if (noSportCheckbox) {
+        // Jika "Tidak Olahraga" dicentang
+        noSportCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                otherSportCheckboxes.forEach(checkbox => {
+                    if (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.disabled = true;
+                    }
+                });
+            } else {
+                otherSportCheckboxes.forEach(checkbox => {
+                    if (checkbox) checkbox.disabled = false;
+                });
+            }
         });
-        
-        // Setup olahraga checkbox logic
-        function setupSportCheckboxLogic() {
-            const noSportCheckbox = document.getElementById('sport6');
-            const otherSportCheckboxes = [
-                document.getElementById('sport1'),
-                document.getElementById('sport2'),
-                document.getElementById('sport3'),
-                document.getElementById('sport4'),
-                document.getElementById('sport5')
-            ];
-            
-            // Ketika "Tidak Olahraga" dicentang
-            if (noSportCheckbox) {
-                noSportCheckbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        // Nonaktifkan checkbox lainnya
-                        otherSportCheckboxes.forEach(checkbox => {
-                            if (checkbox) {
-                                checkbox.checked = false;
-                                checkbox.disabled = true;
-                            }
-                        });
-                    } else {
-                        // Aktifkan kembali checkbox lainnya
-                        otherSportCheckboxes.forEach(checkbox => {
-                            if (checkbox) checkbox.disabled = false;
-                        });
-                    }
-                });
-            }
-            
-            // Ketika checkbox olahraga lain dicentang
-            otherSportCheckboxes.forEach(checkbox => {
-                if (checkbox) {
-                    checkbox.addEventListener('change', function() {
-                        if (this.checked && noSportCheckbox) {
-                            // Pastikan "Tidak Olahraga" tidak dicentang
-                            noSportCheckbox.checked = false;
-                            noSportCheckbox.disabled = false;
-                        }
-                    });
+    }
+
+    // Jika checkbox olahraga lain dicentang
+    otherSportCheckboxes.forEach(checkbox => {
+        if (checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (this.checked && noSportCheckbox) {
+                    noSportCheckbox.checked = false;
+                    noSportCheckbox.disabled = false;
                 }
             });
         }
-        
-        // Setup ibadah checkbox logic
-        function setupWorshipCheckboxLogic() {
-            const noPrayerCheckbox = document.getElementById('worship4');
-            const otherWorshipCheckboxes = [
-                document.getElementById('worship1'),
-                document.getElementById('worship2'),
-                document.getElementById('worship3')
-            ];
-            
-            // Ketika "Tidak Sholat Subuh" dicentang
-            if (noPrayerCheckbox) {
-                noPrayerCheckbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        // Nonaktifkan checkbox ibadah lainnya
-                        otherWorshipCheckboxes.forEach(checkbox => {
-                            if (checkbox) {
-                                checkbox.checked = false;
-                                checkbox.disabled = true;
-                            }
-                        });
-                    } else {
-                        // Aktifkan kembali checkbox ibadah lainnya
-                        otherWorshipCheckboxes.forEach(checkbox => {
-                            if (checkbox) checkbox.disabled = false;
-                        });
+    });
+}
+
+
+// =============================
+// Fungsi Logika Checkbox Ibadah (Subuh)
+// =============================
+function setupWorshipCheckboxLogic() {
+    const noPrayerCheckbox = document.getElementById('worship4'); // Tidak sholat subuh
+    const otherWorshipCheckboxes = [
+        document.getElementById('worship1'),
+        document.getElementById('worship2'),
+        document.getElementById('worship3')
+    ];
+
+    if (noPrayerCheckbox) {
+        noPrayerCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                otherWorshipCheckboxes.forEach(checkbox => {
+                    if (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.disabled = true;
                     }
                 });
+            } else {
+                otherWorshipCheckboxes.forEach(checkbox => {
+                    if (checkbox) checkbox.disabled = false;
+                });
             }
-            
-            // Ketika checkbox ibadah lain dicentang
-            otherWorshipCheckboxes.forEach(checkbox => {
-                if (checkbox) {
-                    checkbox.addEventListener('change', function() {
-                        if (this.checked && noPrayerCheckbox) {
-                            // Pastikan "Tidak Sholat Subuh" tidak dicentang
-                            noPrayerCheckbox.checked = false;
-                            noPrayerCheckbox.disabled = false;
-                        }
-                    });
+        });
+    }
+
+    otherWorshipCheckboxes.forEach(checkbox => {
+        if (checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (this.checked && noPrayerCheckbox) {
+                    noPrayerCheckbox.checked = false;
+                    noPrayerCheckbox.disabled = false;
                 }
             });
         }
-        
-        // Fungsi untuk menampilkan alert
-        function showAlert(message, type) {
-            const alertBox = document.getElementById('alertBox');
-            alertBox.textContent = message;
-            alertBox.className = type === 'success' ? 'alert alert-success' : 'alert alert-error';
-            alertBox.style.display = 'block';
-            
-            // Sembunyikan alert setelah 5 detik
-            setTimeout(() => {
-                alertBox.style.display = 'none';
-            }, 5000);
+    });
+}
+
+
+// =============================
+// Fungsi Logika Checkbox Sholat + Haid
+// =============================
+function setupPrayerCheckboxLogic() {
+    const haidCheckbox = document.getElementById('prayerHaid'); // Sedang Haid
+    const otherPrayerCheckboxes = [
+        document.getElementById('prayerSubuh'),
+        document.getElementById('prayerDzuhur'),
+        document.getElementById('prayerAshar'),
+        document.getElementById('prayerMaghrib'),
+        document.getElementById('prayerIsya')
+    ];
+
+    if (haidCheckbox) {
+        haidCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                otherPrayerCheckboxes.forEach(checkbox => {
+                    if (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.disabled = true;
+                    }
+                });
+            } else {
+                otherPrayerCheckboxes.forEach(checkbox => {
+                    if (checkbox) checkbox.disabled = false;
+                });
+            }
+        });
+    }
+
+    otherPrayerCheckboxes.forEach(checkbox => {
+        if (checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (this.checked && haidCheckbox) {
+                    haidCheckbox.checked = false;
+                    haidCheckbox.disabled = false;
+                }
+            });
         }
-    </script>
+    });
+}
+
+
+// =============================
+// Fungsi Alert
+// =============================
+function showAlert(message, type) {
+    const alertBox = document.getElementById('alertBox');
+    if (!alertBox) return;
+
+    alertBox.textContent = message;
+    alertBox.className = type === 'success' ? 'alert alert-success' : 'alert alert-error';
+    alertBox.style.display = 'block';
+
+    // Auto hide setelah 5 detik
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 5000);
+}
+</script>
+
 </body>
 </html>

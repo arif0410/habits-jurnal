@@ -22,7 +22,7 @@ return new class extends Migration
             $table->json('morningSport')->nullable();
             $table->time('wakeUpTime');
             $table->json('worship')->nullable();
-            $table->string('prayer');
+            $table->json('prayer')->nullable();
             $table->string('breakfast');
             $table->string('learningActivity');
             $table->text('communityActivity')->nullable();

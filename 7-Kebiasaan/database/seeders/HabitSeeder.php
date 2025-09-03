@@ -14,11 +14,11 @@ class HabitSeeder extends Seeder
      */
     public function run(): void
     {
-        // $kelas = ['7 A', '9 A', '8 A', '7 B', '9 B', '8 B', '9 C', '8 C', '7 C', '9 D', '8 D', '7 D', '9 E', '8 E', '7 E', '9 F', '8 F', '7 F', '9 G', '8G', '7 F',];
-        $kelas = ['7 A', '9 A'];
+        $kelas = ['7 A', '9 A', '8 A', '7 B', '9 B', '8 B', '9 C', '8 C', '7 C', '9 D', '8 D', '7 D', '9 E', '8 E', '7 E', '9 F', '8 F', '7 F', '9 G', '8G', '7 F',];
+        // $kelas = ['7 A', '9 A'];
         
         for ($i = 1; $i <= 720; $i++) {
-            $studentNumber = $i % 32 + 1; // Nomor absen antara 1-32
+            $studentNumber = $i % 32 + 1;
             $classIndex = array_rand($kelas);
             
             Habit::create([

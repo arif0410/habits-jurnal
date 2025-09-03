@@ -30,6 +30,7 @@ class Habit extends Model
     protected $casts = [
         'morningSport' => 'array',
         'worship' => 'array',
+        'prayer' => 'array',
     ];
 }
 
